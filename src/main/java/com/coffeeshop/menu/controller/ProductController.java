@@ -42,7 +42,7 @@ public class ProductController {
     public String getProductDetailsById(@PathVariable int id){
         for (Product product: productsList){
             if (product.getId() == id){
-                return "Product: " + product.getId() + " - " + product.getName() + " - $" + product.getPrice();
+                return "<strong>Product details</strong><br><hr>Product: " + product.getId() + " - " + product.getName() + " - $" + product.getPrice();
             }
         }
         // couldn't find the product
