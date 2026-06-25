@@ -28,10 +28,10 @@ public class ProductController {
         return "Welcome to the Coffee Shop!";
     }
 
-    @RequestMapping("/list")
-    public String listProducts(Model productListModel){ // Model argument is used to pass data to the view
+    @RequestMapping("/list") // This maps to the URL http://localhost:8080/products/list
+    public String listProducts(Model productListModel) { // Model argument is used to pass data to the view
         productListModel.addAttribute("products", productsList); // Add the productsList to the model
-        return "menu"; // This returns the view name, that is, the JSP file name
+        return "menu";  // This returns the view name, that is, the JSP file name
     }
 
     @RequestMapping("/details/{id}")
