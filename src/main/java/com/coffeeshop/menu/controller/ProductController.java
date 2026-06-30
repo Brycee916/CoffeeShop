@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.coffeeshop.menu.model.Product;
 
 @Controller
-@RequestMapping("/products") // This means all URLs start with http://localhost:8080/products/
 public class ProductController {
 
     private final List<Product> productsList= List.of(
@@ -21,6 +21,7 @@ public class ProductController {
         new Product(4, "Chocolate Muffin", 2.25),
         new Product(5, "Americano", 2.75)
     );
+
 
     @RequestMapping("/") // This maps to the URL http://localhost:8080/products/
     @ResponseBody // directs Spring Boot to send the returned string directly as an HTTP response.
@@ -32,6 +33,18 @@ public class ProductController {
     public String listProducts(Model productListModel) { // Model argument is used to pass data to the view
         productListModel.addAttribute("products", productsList); // Add the productsList to the model
         return "menu";  // This returns the view name, that is, the JSP file name
+    }
+
+    @RequestMapping("/add")  // Maps to the URL http://localhost:8080/add
+    public String showProductForm(Model productAddFormModel) {
+        productAddFormModel.addAttribute("product", new Product());  // Add a new product instance to the model
+        return "add-new-product";
+    }
+    @PostMapping("/addNewProduct")
+    public String addProduct(Product product){
+        productsList.add(product);
+        System.out.println(productsList);
+        return "redirect:/list";
     }
 
     @RequestMapping("/details/{id}")
