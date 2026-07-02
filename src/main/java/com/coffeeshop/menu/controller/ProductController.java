@@ -1,5 +1,6 @@
 package com.coffeeshop.menu.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -14,13 +15,13 @@ import com.coffeeshop.menu.model.Product;
 @Controller
 public class ProductController {
 
-    private final List<Product> productsList= List.of(
+    private List<Product> productsList= new ArrayList<>(List.of(
         new Product(1, "Expresso", 2.50),
         new Product(2, "Latte", 3.50),
         new Product(3, "Croissant", 2.00),
         new Product(4, "Chocolate Muffin", 2.25),
         new Product(5, "Americano", 2.75)
-    );
+    ));
 
 
     @RequestMapping("/") // This maps to the URL http://localhost:8080/products/

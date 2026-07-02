@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html xmls:th=""http://www.thymeleaf.org"> lang="en">
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org"> lang="en">
 <form th:action="@{/addNewProduct}" method="post">
     <label for="id">ID:</label>
     <input type="number" id="id" name="id">
@@ -10,7 +10,7 @@
     <br>
     
     <label for="price">Price:</label>
-    <input type="number" id="price" name="price">
+    <input type="number" step="0.01" id="price" name="price">
     <br>
     
     <button type="submit">Add Product</button>
