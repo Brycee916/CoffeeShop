@@ -1,8 +1,13 @@
 package com.coffeeshop.menu.model;
 
+import jakarta.annotation.Nonnull;
+
 public class Product {
+    @Nonnull
     private int id;
+    @Nonnull
     private String name;
+    @Nonnull
     private double price;
 
     public Product(int id, String name, double price){
