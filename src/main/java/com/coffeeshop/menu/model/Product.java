@@ -5,7 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="Products")
@@ -16,9 +18,11 @@ public class Product {
     private int id;
 
     @NotNull(message="Product name cannot be null")
+    @Size(min=2, max=50, message="Product name must be between 2 and 50 characters")
     private String name;
     
-
+    @NotNull(message="Product must have a price")
+    @Min(value=1, message="Product must have a minimum price of $1")
     private double price;
 
     public Product(int id, String name, double price){
