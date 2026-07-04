@@ -9,12 +9,12 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Entity
-@Table(name="Products")
+@Entity //so JPA recognizes this class as an entity that should be mapped to a database table
+@Table(name="Products") //table name in database if different from class name. can also specify table name in the @Entity annotation, but @Table is more explicit and clear.
 public class Product {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //GenerationType.IDENTITY: Relies on the database's auto-increment feature to generate primary key values.
     private int id;
 
     @NotNull(message="Product name cannot be null")
