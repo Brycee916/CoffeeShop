@@ -31,6 +31,7 @@ public class Product {
         this.price = price;
     }
 
+    // no arg constructor
     public Product() {
         
     }
