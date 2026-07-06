@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 @Table(name="Products") //table name in database if different from class name. can also specify table name in the @Entity annotation, but @Table is more explicit and clear.
 public class Product {
 
-    @Id
+    @Id //entity must have a primary key
     @GeneratedValue(strategy=GenerationType.IDENTITY) //GenerationType.IDENTITY: Relies on the database's auto-increment feature to generate primary key values.
     private int id;
 
@@ -31,7 +31,7 @@ public class Product {
         this.price = price;
     }
 
-    // no arg constructor
+    // entity must have no arg constructor
     public Product() {
         
     }
