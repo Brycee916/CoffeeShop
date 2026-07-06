@@ -15,8 +15,9 @@ public class Product {
 
     @Id //entity must have a primary key
     @GeneratedValue(strategy=GenerationType.IDENTITY) //GenerationType.IDENTITY: Relies on the database's auto-increment feature to generate primary key values.
-    private int id;
+    private Long id;
 
+    //@Column(name="PRODUCT_NAME", length=50, nullable=false, unique=false)
     @NotNull(message="Product name is required")
     @Size(min=2, max=50, message="Product name must be between 2 and 50 characters")
     private String name;
@@ -25,7 +26,7 @@ public class Product {
     @Min(value=1, message="Product must have a positive value")
     private double price;
 
-    public Product(int id, String name, double price){
+    public Product(Long id, String name, double price){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -36,16 +37,16 @@ public class Product {
         
     }
     /**
-     * @return int return the id
+     * @return Long return the id
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
