@@ -17,12 +17,12 @@ public class Product {
     @GeneratedValue(strategy=GenerationType.IDENTITY) //GenerationType.IDENTITY: Relies on the database's auto-increment feature to generate primary key values.
     private int id;
 
-    @NotNull(message="Product name cannot be null")
+    @NotNull(message="Product name is required")
     @Size(min=2, max=50, message="Product name must be between 2 and 50 characters")
     private String name;
     
-    @NotNull(message="Product must have a price")
-    @Min(value=1, message="Product must have a minimum price of $1")
+    @NotNull(message="Product price is required")
+    @Min(value=1, message="Product must have a positive value")
     private double price;
 
     public Product(int id, String name, double price){
