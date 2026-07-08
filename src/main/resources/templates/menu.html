@@ -6,23 +6,25 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
     <body>
-        <h1>
-            Welcome to the Coffee Shop!
-        </h1>
-        <h2>
-            Our Menu
-        </h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
-            <tr th:each="product : ${products}">
-                <td th:text="${product.id}"></td>
-                <td th:text="${product.name}"></td>
-                <td th:text="${product.price}"></td>
-            </tr>
-        </table>
+        <div align="center">
+            <h1>
+                Welcome to the Coffee Shop!
+            </h1>
+            <h2>
+                Our Menu
+            </h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <tr th:each="product : ${listproducts}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.price}"></td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
