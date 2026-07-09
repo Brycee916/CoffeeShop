@@ -16,7 +16,7 @@ public class ProductController {
     //display the list of products
     @GetMapping("/")
     public String viewHomePage(Model model){
-        model.addAttribute("listProducts", productService.getAllProducts());
+        model.addAttribute("listproducts", productService.getAllProducts());
         return "menu";
     }
 
