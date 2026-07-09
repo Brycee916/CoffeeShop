@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmls:th="http://www.thymeleaf.org"> lang="en">
-<form th:action="@{/addNewProduct}" method="post">
+<form th:action="@{/saveProduct}" th:object="${product}" method="post">
+    
     <label for="id">ID:</label>
     <input type="number" id="id" name="id">
     <br>

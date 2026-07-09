@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.coffeeshop.menu.model.Product;
 import com.coffeeshop.menu.service.ProductService;
 
 @Controller
@@ -18,6 +20,13 @@ public class ProductController {
     public String viewHomePage(Model model){
         model.addAttribute("listproducts", productService.getAllProducts());
         return "menu";
+    }
+
+    @PostMapping("/showNewProductForm")
+    public String showNewProductForm(Model model){
+        Product product = new Product();
+        model.addAttribute("product", product);
+        return "add-new-product";
     }
 
     // private List<Product> productsList= new ArrayList<>(List.of(
