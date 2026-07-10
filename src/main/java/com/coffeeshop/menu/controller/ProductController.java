@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coffeeshop.menu.model.Product;
@@ -22,11 +23,19 @@ public class ProductController {
         return "menu";
     }
 
-    @PostMapping("/showNewProductForm")
+    @GetMapping("/showNewProductForm")
     public String showNewProductForm(Model model){
         Product product = new Product();
         model.addAttribute("product", product);
         return "add-new-product";
+    }
+
+    @PostMapping("/saveProduct")
+    public String saveProduct(@ModelAttribute("product") Product product){
+        
+        //save the product to database
+        productService.saveProduct(product);
+        return "redirect:/";
     }
 
     // private List<Product> productsList= new ArrayList<>(List.of(
