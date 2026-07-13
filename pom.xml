@@ -92,7 +92,9 @@
 
 			<!-- Checkstyle Plugin Starts --> 
 			<plugin> 
-				<groupId></groupId> <artifactId></artifactId> <version></version> 
+				<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.6.0</version> 
 				<executions> 
 					<execution> 
 						<id></id> 
