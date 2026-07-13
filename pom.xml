@@ -89,6 +89,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!-- Checkstyle Plugin Starts --> 
+			<plugin> 
+				<groupId></groupId> <artifactId></artifactId> <version></version> 
+				<executions> 
+					<execution> 
+						<id></id> 
+						<phase></phase> 
+						<goals> 
+							<goal></goal> 
+						</goals> 
+					</execution> 
+				</executions> 
+				<configuration>
+					<configLocation></configLocation>        
+					<failOnViolation></failOnViolation> 
+					<linkXRef></linkXRef> 
+				</configuration> 
+			</plugin>
+			<!-- Checkstyle Plugin Ends--> 
 		</plugins>
 	</build>
 
